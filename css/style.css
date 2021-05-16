@@ -1,0 +1,412 @@
+:root {
+  --light-red: hsl(356, 100%, 66%);
+  --very-light-red: hsl(14, 93%, 59%);
+  --very-dark-blue: hsl(208, 49%, 24%);
+  --grayish-blue: hsl(240, 2%, 79%);
+  --very-dark-grayish-blue: hsl(207, 13%, 34%);
+  --very-dark-black-blue: hsl(240, 10%, 16%);
+  --nav-gradient: linear-gradient(var(--very-light-red), var(--light-red));
+  --some-gradient: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/bg-pattern-intro.svg'),
+    linear-gradient(180deg, hsl(12, 100%, 62%), hsl(356, 100%, 66%));
+  background-repeat: no-repeat;
+  background-position: 20% 50%,center;
+  background-size: 200%, contain;
+  padding: 2em 1.5em 0;
+  color: white;
+  border-bottom-left-radius: 80px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 70px;
+}
+
+.menu {
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: fit-content;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  width: 80vw;
+  transition: all 0.25s linear;
+}
+
+.menu.active {
+  display: block;
+  position: fixed;
+  background-color: white;
+  top: 80px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: fit-content;
+  width: 80vw;
+  background-color: white;
+  color: var(--very-dark-black-blue);
+  font-family: Overpass;
+  font-weight: 600;
+  padding: 1.4em 1em;
+  border-radius: 4px;
+  box-shadow: 0 20px 30px #0003;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  border-bottom: 1px solid var(--grayish-blue);
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.list .item {
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: fit-content;
+}
+
+.item.active {
+  color: var(--very-dark-blue);
+}
+
+.item.active .container {
+  transform: scale(1);
+  height: auto;
+}
+
+.item.active .inner-menu {
+  transform: scale(1);
+  color: var(--very-dark-grayish-blue);
+}
+
+.container {
+  width: 100%;
+  margin-top: 1em;
+  transform: scale(0);
+  height: 0;
+}
+
+.inner-menu {
+  background-color: var(--grayish-blue);
+  width: 100%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 0;
+  transform: scale(0);
+}
+
+.login-signup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top:1em;
+  gap:1em;
+}
+
+.login{
+  text-decoration: none;
+  color:var(--very-dark-black-blue);
+}
+
+.signup.button{
+  background: linear-gradient(135deg, var(--very-light-red),var(--light-red));
+  padding:1em;
+}
+
+.ham-burgur > img {
+  width: 30px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.header-main {
+  padding: 0 0.7em;
+  height: calc(100% - 27.7616px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.text-heading {
+  font-family: Overpass;
+  font-size: 1.7em;
+}
+
+.caption-heading {
+  font-size: 0.9em;
+  font-family: Overpass;
+  margin-bottom: 1em;
+}
+
+.button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  width: 110px;
+  padding: 0.7em;
+  border-radius: 2em;
+  color: white;
+  font-family: Ubuntu;
+  font-size: 0.85em;
+  font-weight: 500;
+  border: 1.5px solid white;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.start.button {
+  background-color: white;
+  color: var(--light-red);
+  border: 1.5px solid white;
+}
+
+.start.button:hover {
+  background-color: var(--very-light-red);
+  color: white;
+  border: 1.5px solid var(--very-light-red);
+}
+
+.learn.button:hover {
+  background-color: white;
+  color: var(--light-red);
+  border: 1.5px solid white;
+}
+
+@media only screen and (min-width: 650px) {
+  .header {
+    padding: 4em 0 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 80%;
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2em;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .menu {
+    background-color: transparent;
+    position: static;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    opacity: unset;
+    pointer-events: unset;
+  }
+
+  .menu .list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+    padding-bottom: 0;
+    border-bottom: none;
+    width: unset;
+  }
+
+  .list .item {
+    list-style: none;
+    font-family: Ubuntu;
+    font-size: clamp(0.8em, 1.5vw, 1em);
+    font-weight: 500;
+    margin-right: 1.5em;
+    position: relative;
+    cursor: pointer;
+    width: unset;
+    text-align: unset;
+    display: initial;
+  }
+
+  .list .item:hover{
+    text-decoration: underline;
+  }
+  .item::after {
+    content: url("./images/icon-arrow-light.svg");
+    position: absolute;
+    right: -13px;
+    bottom: 0;
+  }
+
+  .item.active::after {
+    transform: rotate(180deg);
+  }
+
+  .login-signup{
+    flex-direction: row;
+    gap:unset;
+    padding-top: 0;
+  }
+  .login {
+    text-decoration: none;
+    color: white;
+    font-family: Ubuntu;
+    font-size: clamp(0.8em, 1.5vw, 1em);
+    margin-right: 1em;
+  }
+
+  .inner-menu {
+    background-color: white;
+    color: #302f2f;
+    padding: 1em;
+    font-family: Ubuntu;
+    font-weight: 400;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease-out;
+    gap :0;
+    width: 100%;
+  }
+
+  .item.active{
+    color:white;
+  }
+
+  .item.active .inner-menu {
+    transform: translateY(0);
+    transition: transform 0.2s ease-out;
+  }
+
+  .item.active .container {
+    transform: scale(1);
+    visibility: visible;
+  }
+
+  .container {
+    display: block;
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 170%;
+    overflow: hidden;
+    visibility: hidden;
+    transform: scale(0);
+    transform-origin: top;
+    transition: transform 0.2s ease-out; 
+    width: unset;
+  }
+
+  .inner-menu > p {
+    margin: 5px 0;
+  }
+
+  .inner-menu > p:hover {
+    font-weight: 700;
+  }
+
+  .ham-burgur {
+    display: none;
+  }
+
+  .ham-burgur > img {
+    display: none;
+  }
+
+  .header-main {
+    height: calc(100% - 45.2px);
+  }
+
+  .text-heading {
+    font-family: Overpass;
+    font-size: clamp(2em, 5vw, 4em);
+  }
+
+  .caption-heading {
+    font-size: 0.9em;
+    font-family: Overpass;
+    margin-bottom: 1em;
+  }
+
+  .button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 110px;
+    padding: 0.7em;
+    border-radius: 2em;
+    color: white;
+    font-family: Ubuntu;
+    font-size: 0.85em;
+    font-weight: 500;
+    border: 1.5px solid white;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  
+  .start.button,
+  .signup.button {
+    background: none;
+    background-color: white;
+    color: var(--light-red);
+    border: 1.5px solid white;
+  }
+
+  .start.button:hover,
+  .signup.button:hover {
+    background-color: var(--very-light-red);
+    color: white;
+    border: 1.5px solid var(--very-light-red);
+  }
+
+  .learn.button:hover {
+    background-color: white;
+    color: var(--light-red);
+    border: 1.5px solid white;
+  }
+}
